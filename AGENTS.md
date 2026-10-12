@@ -13,3 +13,4 @@
 - Tool catalog lives only in `src/data/resources.ts` and starter paths in `src/data/stacks.ts`; tests in `src/test/resources.test.ts` guard counts — single source of truth for content.
 - Site links/examples live in `src/config/site.ts`; empty values hide UI — owner edits one file.
 - Frontend only, saves in localStorage via `src/lib/saved.ts` — no backend by owner request.
+- Photos the site displays (portrait, avatar) live in `src/assets` as `.asset.json` CDN pointers, never as binaries in the repo; upload with `lovable-assets` and import the pointer.
