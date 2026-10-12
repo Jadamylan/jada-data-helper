@@ -101,5 +101,6 @@ export function logoUrl(r: Resource) {
 
 export function initials(name: string) {
   const words = name.replace(/[^A-Za-z0-9 ]/g, " ").split(/\s+/).filter(Boolean);
-  return (words.length > 1 ? words[0][0] + words[1][0] : name.slice(0, 2)).toUpperCase();
+  const [a, b] = words;
+  return (a && b ? a.charAt(0) + b.charAt(0) : name.slice(0, 2)).toUpperCase();
 }
