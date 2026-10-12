@@ -28,6 +28,13 @@ describe("resource catalog", () => {
     expect(RESOURCES.some((r) => /bitwarden/i.test(r.name))).toBe(false);
   });
 
+  it("carries the curator's referral link on Lovable only", () => {
+    const lovable = byId("lovable");
+    expect(lovable?.referral).toBe("https://lovable.dev/invite/ZYRGN62");
+    expect(lovable?.url).toBe("https://lovable.dev/");
+    expect(RESOURCES.filter((r) => r.referral).map((r) => r.id)).toEqual(["lovable"]);
+  });
+
   it("every starter stack points to real tools", () => {
     expect(STARTER_STACKS).toHaveLength(7);
     for (const s of STARTER_STACKS) for (const t of s.tools) expect(byId(t.id), t.id).toBeDefined();
