@@ -46,6 +46,15 @@ export function DetailDialog({ id, onClose, saved }: { id: string | null; onClos
               <dd className="mt-1">{r.activity}</dd>
             </div>
           </dl>
+          {r.referral && (
+            <div className="mt-5 rounded-md border-2 border-ink bg-gold/40 p-4">
+              <p className="font-display text-sm uppercase">Start with my link</p>
+              <p className="mt-1 text-sm">It’s a referral link, so signing up through it supports the guide.</p>
+              <a href={r.referral} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block rounded-sm border-2 border-ink bg-magenta px-4 py-2 font-semibold text-cream">
+                Use my link<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </div>
+          )}
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={r.url} target="_blank" rel="noopener noreferrer" className="rounded-sm border-2 border-ink bg-ink px-4 py-2 font-semibold text-cream">Visit official site<span className="sr-only"> (opens in a new tab)</span></a>
             <button type="button" aria-pressed={saved.isSaved(r.id)} onClick={() => saved.toggle(r.id)} className="rounded-sm border-2 border-ink bg-paper px-4 py-2 font-semibold">

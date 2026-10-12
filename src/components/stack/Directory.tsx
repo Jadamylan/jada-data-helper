@@ -25,7 +25,12 @@ function ToolCard({ r, saved, onLearnMore }: { r: Resource; saved: SavedApi; onL
       </div>
       <div className="mt-3"><StatusBadge status={r.status} /></div>
       <p className="mt-3 flex-1">{r.description}</p>
-      <div className="mt-4 flex items-center gap-3">
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        {r.referral && (
+          <a href={r.referral} target="_blank" rel="noopener noreferrer" className="rounded-sm border-2 border-ink bg-magenta px-3 py-1.5 text-sm font-semibold text-cream">
+            Use my link<span className="sr-only"> — referral link for {r.name} (opens in a new tab)</span>
+          </a>
+        )}
         <a href={r.url} target="_blank" rel="noopener noreferrer" className="rounded-sm border-2 border-ink bg-ink px-3 py-1.5 text-sm font-semibold text-cream">
           Visit tool<span className="sr-only"> {r.name} (opens in a new tab)</span>
         </a>
