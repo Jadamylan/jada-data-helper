@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { EXAMPLES, SITE } from "@/config/site";
+import jadaPortrait from "@/assets/jada-portrait.jpg.asset.json";
+import jadaAvatar from "@/assets/jada-avatar.jpg.asset.json";
 import { useSaved } from "@/lib/saved";
 import { StarterStackSection } from "@/components/stack/StarterStack";
 import { DirectorySection } from "@/components/stack/Directory";
@@ -87,7 +89,18 @@ function Index() {
             </div>
             <div className="relative">
               <Rings className="absolute -right-2 -top-6 h-20 w-14" />
-              <ol className="flex flex-col gap-3 lg:mt-10 lg:flex-row lg:flex-wrap lg:gap-y-6" aria-label="How a build comes together">
+              <figure className="reveal relative mx-auto w-full max-w-[260px] lg:mb-8">
+                <span aria-hidden className="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2 bg-gold/70" />
+                <img
+                  src={jadaPortrait.url}
+                  alt="Jada Mylan Smith smiling outdoors, wearing a brightly patterned jacket"
+                  width={960}
+                  height={1200}
+                  className="w-full rotate-1 rounded-md border-2 border-ink object-cover shadow-offset"
+                />
+                <figcaption className="mt-2 text-center font-hand text-2xl text-emerald">Hi — I’m Jada.</figcaption>
+              </figure>
+              <ol className="flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:gap-y-6" aria-label="How a build comes together">
                 {HERO_CARDS.map((c, i) => (
                   <li key={c.label} className={`reveal rounded-md border-2 border-ink p-4 shadow-offset lg:w-36 ${c.cls}`} style={{ animationDelay: `${i * 80}ms` }}>
                     <span className="font-hand text-lg text-muted-foreground">0{i + 1}</span>
@@ -129,9 +142,19 @@ function Index() {
 
       <footer className="border-t-2 border-ink bg-emerald text-cream">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-12 sm:px-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="font-serif text-2xl italic">“Start with the problem. Pick the tools that help you solve it.”</p>
-            <p className="mt-2 font-semibold">Curated by {SITE.curator}.</p>
+          <div className="flex items-center gap-4">
+            <img
+              src={jadaAvatar.url}
+              alt=""
+              width={512}
+              height={512}
+              loading="lazy"
+              className="h-16 w-16 shrink-0 rounded-full border-2 border-cream object-cover"
+            />
+            <div>
+              <p className="font-serif text-2xl italic">“Start with the problem. Pick the tools that help you solve it.”</p>
+              <p className="mt-2 font-semibold">Curated by {SITE.curator}.</p>
+            </div>
           </div>
           <p className="max-w-sm text-sm text-cream/85">List reviewed {SITE.reviewedOn}. Tool features and pricing can change, so check each official site before you commit.</p>
         </div>
