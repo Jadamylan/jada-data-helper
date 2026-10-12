@@ -88,8 +88,8 @@ function Index() {
               </div>
             </div>
             <div className="relative">
-              <Rings className="absolute -right-2 -top-6 h-20 w-14" />
-              <figure className="reveal relative mx-auto w-full max-w-[260px] lg:mb-8">
+              <Rings className="absolute -right-2 -top-6 hidden h-20 w-14 lg:block" />
+              <figure className="reveal relative mx-auto w-full max-w-[220px] sm:max-w-[260px] lg:mb-8">
                 <span aria-hidden className="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2 bg-gold/70" />
                 <img
                   src={jadaPortrait.url}
